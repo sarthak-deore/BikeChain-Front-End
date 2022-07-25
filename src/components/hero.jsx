@@ -53,6 +53,7 @@ export default function Hero() {
               bg={"teal.400"}
               rounded={"full"}
               px={6}
+              mt={"20px"}
               _hover={{
                 bg: "teal.500",
               }}
@@ -68,12 +69,14 @@ export default function Hero() {
                 w={71}
                 position={"absolute"}
                 right={-71}
+                mt={"20px"}
                 top={"10px"}
               />
               <Text
                 fontSize={"lg"}
                 fontFamily={"Caveat"}
                 position={"absolute"}
+                mt={"20px"}
                 right={"-125px"}
                 top={"-25px"}
                 transform={"rotate(10deg)"}

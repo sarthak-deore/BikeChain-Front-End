@@ -7,8 +7,11 @@ import {
   Text,
   Flex,
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { BlockChainContext } from "../context/blockChainContext";
 
 export default function AddBalanceForm() {
+  const { deposit } = useContext(BlockChainContext);
   const {
     handleSubmit,
     register,
@@ -16,6 +19,8 @@ export default function AddBalanceForm() {
   } = useForm();
 
   const onSubmit = async (values) => {
+    const { creditBalance } = values;
+    await deposit(creditBalance);
     console.log(JSON.stringify(values));
   };
 
@@ -35,7 +40,7 @@ export default function AddBalanceForm() {
             id="creditBalance"
             type="number"
             step="any"
-            placeholder="CreditBalance"
+            placeholder="Credit Balance"
             {...register("creditBalance", {
               required: "This is required",
             })}

@@ -98,25 +98,6 @@
           "type": "address"
         }
       ],
-      "name": "canRentBike",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "walletAddress",
-          "type": "address"
-        }
-      ],
       "name": "checkIn",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -143,6 +124,25 @@
           "type": "address"
         }
       ],
+      "name": "checkOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "walletAddress",
+          "type": "address"
+        }
+      ],
       "name": "deposit",
       "outputs": [],
       "stateMutability": "payable",
@@ -157,6 +157,19 @@
         }
       ],
       "name": "getDue",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwnerBalance",
       "outputs": [
         {
           "internalType": "uint256",
@@ -226,11 +239,16 @@
           "internalType": "address",
           "name": "walletAddress",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
         }
       ],
       "name": "makePayment",
       "outputs": [],
-      "stateMutability": "payable",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -310,7 +328,14 @@
       ],
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawOwnerBalance",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
     }
   ],
-  "contractAddress": "0xdfA8706329B6BD39B3C3B13d510547FA058f7Bae"
+  "contractAddress": "0x97365701c2a396424DFeBc1f407BE92a6bE51E18"
 }

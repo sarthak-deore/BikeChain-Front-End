@@ -7,8 +7,11 @@ import {
   Text,
   Flex,
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { BlockChainContext } from "../context/blockChainContext";
 
 export default function PayForm() {
+  const { makePayment } = useContext(BlockChainContext);
   const {
     handleSubmit,
     register,
@@ -16,6 +19,8 @@ export default function PayForm() {
   } = useForm();
 
   const onSubmit = async (values) => {
+    const { payment } = values;
+    await makePayment(payment);
     console.log(JSON.stringify(values));
   };
 
@@ -35,7 +40,7 @@ export default function PayForm() {
             id="payment"
             type="number"
             step="any"
-            placeholder="Payment"
+            placeholder={"Amount"}
             {...register("payment", {
               required: "This is required",
             })}

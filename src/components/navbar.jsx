@@ -5,29 +5,24 @@ import {
   IconButton,
   Button,
   Stack,
-  Collapse,
-  Icon,
-  Link,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Link,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
+
+import { useNavigate } from "react-router-dom";
 
 import { BlockChainContext } from "../context/blockChainContext";
 
 import { useContext } from "react";
 
 export default function Navbar() {
-  const { isOpen, onToggle } = useDisclosure();
+  let navigate = useNavigate();
+
+  const handleClick = (path) => {
+    navigate(path);
+  };
   const { connectWallet, currentAccount } = useContext(BlockChainContext);
 
   return (
@@ -44,15 +39,16 @@ export default function Navbar() {
         align={"center"}
       >
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
+          <Link
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
             fontWeight={900}
             fontSize={"x-large"}
+            onClick={() => handleClick("dashboard")}
           >
             BikeChain
-          </Text>
+          </Link>
         </Flex>
 
         <Stack
